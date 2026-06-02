@@ -34,45 +34,36 @@ public class FornecedorService {
     }
 
     // ATUALIZAR
-    public Fornecedor atualizar(
-            Long codFornecedor,
-            Fornecedor fornecedor) {
+   public Fornecedor atualizar(
+        Long codFornecedor,
+        Fornecedor fornecedor) {
 
-        Fornecedor fornecedorExistente =
-                buscarPorId(codFornecedor);
+    Fornecedor fornecedorExistente =
+            buscarPorId(codFornecedor);
 
-        fornecedorExistente.setRazaoSocialFornecedor(
-                fornecedor.getRazaoSocialFornecedor());
+    fornecedorExistente.setRazaoSocialFornecedor(
+            fornecedor.getRazaoSocialFornecedor());
 
-        fornecedorExistente.setNomeFornecedor(
-                fornecedor.getNomeFornecedor());
+    fornecedorExistente.setNomeFornecedor(
+            fornecedor.getNomeFornecedor());
 
-        fornecedorExistente.setCnpjFornecedor(
-                fornecedor.getCnpjFornecedor());
+    fornecedorExistente.setCnpjFornecedor(
+            fornecedor.getCnpjFornecedor());
 
-        fornecedorExistente.setCpfFornecedor(
-                fornecedor.getCpfFornecedor());
+    fornecedorExistente.setEnderecoFornecedor(
+            fornecedor.getEnderecoFornecedor());
 
-        fornecedorExistente.setEnderecoForncedor(
-                fornecedor.getEnderecoForncedor());
+    fornecedorExistente.setTelefoneFornecedor(
+            fornecedor.getTelefoneFornecedor());
 
-        fornecedorExistente.setTelefonePrestador(
-                fornecedor.getTelefonePrestador());
+    fornecedorExistente.setEmailFornecedor(
+            fornecedor.getEmailFornecedor());
 
-        fornecedorExistente.setEmailPrestador(
-                fornecedor.getEmailPrestador());
+    fornecedorExistente.setDataCadastroFornecedor(
+            fornecedor.getDataCadastroFornecedor());
 
-        fornecedorExistente.setDataVendaFornecedor(
-                fornecedor.getDataVendaFornecedor());
-
-        fornecedorExistente.setDataPagamentoFornecedor(
-                fornecedor.getDataPagamentoFornecedor());
-
-        fornecedorExistente.setValorFornecedor(
-                fornecedor.getValorFornecedor());
-
-        return repository.save(fornecedorExistente);
-    }
+    return repository.save(fornecedorExistente);
+}
 
     // DELETAR
     public void deletar(Long codFornecedor) {
