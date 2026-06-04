@@ -23,16 +23,13 @@ public class ItemVenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codItemVenda;
-
     @ManyToOne
     @JoinColumn(name = "codVenda")
     private Venda venda;
-
     @ManyToOne
     @JoinColumn(name = "codProduto")
     private Produto produto;
-
     private Integer quantidade;
-
     private BigDecimal valorUnitario;
+    private BigDecimal subtotal;
 }

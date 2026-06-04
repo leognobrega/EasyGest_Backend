@@ -1,12 +1,15 @@
 package com.easygest.springboot.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.easygest.springboot.model.ItemVenda;
+import com.easygest.springboot.model.Produto;
 import com.easygest.springboot.repository.ItemVendaRepository;
+import com.easygest.springboot.repository.ProdutoRepository;
 
 @Service
 public class ItemVendaService {
@@ -14,17 +17,37 @@ public class ItemVendaService {
     @Autowired
     private ItemVendaRepository repository;
 
+    @Autowired
+    private ProdutoRepository produtoRepository;
+
     public List<ItemVenda> listar() {
         return repository.findAll();
     }
 
     public ItemVenda salvar(ItemVenda itemVenda) {
-        return repository.save(itemVenda);
-    }
 
-    public ItemVenda buscarPorId(Long codItemVenda) {
-        return repository.findById(codItemVenda)
-                .orElseThrow();
+        Produto produto = itemVenda.getProduto();
+
+        itemVenda.setSubtotal(
+                itemVenda.getValorUnitario()
+                        .multiply(
+                                BigDecimal.valueOf(
+                                        itemVenda.getQuantidade())));
+
+        Produto produtoBanco =
+                produtoRepository.findById(
+                        produto.getCodProduto())
+                        .orElseThrow();
+
+        produtoBanco.setQuantidadeAtual(
+                produtoBanco.getQuantidadeAtual()
+                        .subtract(
+                                BigDecimal.valueOf(
+                                        itemVenda.getQuantidade())));
+
+        produtoRepository.save(produtoBanco);
+
+        return repository.save(itemVenda);
     }
 
     public void deletar(Long codItemVenda) {

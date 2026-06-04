@@ -1,5 +1,6 @@
 package com.easygest.springboot.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
@@ -24,8 +25,7 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codVenda;
     private LocalDate dataVenda;
-    private Float valorTotal;
-    private Integer quantidade;
+    private BigDecimal valorTotal;
     private String status;
     @ManyToOne
     @JoinColumn(name = "codCliente")
