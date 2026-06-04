@@ -51,10 +51,14 @@ public class ProdutoService {
         existente.setDataValidadeProduto(novo.getDataValidadeProduto());
         existente.setDataVendaProduto(novo.getDataVendaProduto());
         existente.setDataFabricacaoProduto(novo.getDataFabricacaoProduto());
+        existente.setFornecedor(novo.getFornecedor());
 
         // CAMPOS DE ESTOQUE
         existente.setQuantidadeAtual(novo.getQuantidadeAtual());
         existente.setEstoqueMinimo(novo.getEstoqueMinimo());
+
+        // FORNECEDOR
+        existente.setFornecedor(novo.getFornecedor());
 
         verificarEstoque(existente);
 
