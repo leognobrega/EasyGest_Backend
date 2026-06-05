@@ -36,18 +36,19 @@ public class ClienteService {
     // ATUALIZAR
     public Cliente atualizar(Long codCliente, Cliente cliente) {
 
-        Cliente clienteExistente =
-                buscarPorId(codCliente);
+    Cliente clienteExistente =
+            buscarPorId(codCliente);
 
-        clienteExistente.setNomeCliente(cliente.getNomeCliente());
-        clienteExistente.setCpfCliente(cliente.getCpfCliente());
-        clienteExistente.setEnderecoCliente(cliente.getEnderecoCliente());
-        clienteExistente.setTelefoneCliente(cliente.getTelefoneCliente());
-        clienteExistente.setEmailCliente(cliente.getEmailCliente());
-        clienteExistente.setDataCadastro(cliente.getDataCadastro());
+    clienteExistente.setNomeCliente(cliente.getNomeCliente());
+    clienteExistente.setCpfCliente(cliente.getCpfCliente());
+    clienteExistente.setEnderecoCliente(cliente.getEnderecoCliente());
+    clienteExistente.setTelefoneCliente(cliente.getTelefoneCliente());
+    clienteExistente.setEmailCliente(cliente.getEmailCliente());
+    clienteExistente.setStatusCliente(cliente.getStatusCliente());
+    clienteExistente.setDataCadastro(cliente.getDataCadastro());
 
-        return repository.save(clienteExistente);
-    }
+    return repository.save(clienteExistente);
+}
 
     // DELETAR
     public void deletar(Long codCliente) {

@@ -27,5 +27,6 @@ public class Cliente {
     private String enderecoCliente;
     private String telefoneCliente;
     private String emailCliente;
+    private String statusCliente;
     private LocalDate dataCadastro;
 }
